@@ -1,9 +1,11 @@
 package run;
 
+import graphics.Frame;
+
 public class Run {
 
 	public static void main(String[] args) {
-		System.out.println("Test");
+		Frame frame = new Frame();
 	}
 	
 }
