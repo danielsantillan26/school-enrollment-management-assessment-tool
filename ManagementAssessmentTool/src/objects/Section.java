@@ -4,14 +4,18 @@ import java.util.ArrayList;
 
 public class Section {
 
+	private String title;
 	private int questionCount;
 	private ArrayList<String> questions;
+	private String[] scoreMeanings;
 	private ArrayList<Boolean> isAnswered;
 	private ArrayList<Integer> currentPointCount;
 	
-	public Section() {
+	public Section(String title) {
+		this.title = title;
 		questionCount = 0;
 		questions = new ArrayList<String>();
+		scoreMeanings = new String[3];
 		isAnswered = new ArrayList<Boolean>();
 		currentPointCount = new ArrayList<Integer>();
 	}
@@ -22,20 +26,6 @@ public class Section {
 		questions.add(question);
 		isAnswered.add(false);
 		currentPointCount.add(0);
-	}
-	
-	
-	public int getQuestionCount() {
-		return questionCount;
-	}
-	
-	
-	public int getCurrentPoints() {
-		int pointTotal = 0;
-		for (Integer i : currentPointCount) {
-			pointTotal += i;
-		}
-		return pointTotal;
 	}
 	
 	
@@ -77,6 +67,30 @@ public class Section {
 	public void clearSelection(int questionIndex) {
 		isAnswered.set(questionIndex, false);
 		currentPointCount.set(questionIndex, 0);
+	}
+	
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	
+	public int getQuestionCount() {
+		return questionCount;
+	}
+	
+	
+	public int getCurrentPoints() {
+		int pointTotal = 0;
+		for (Integer i : currentPointCount) {
+			pointTotal += i;
+		}
+		return pointTotal;
+	}
+	
+	
+	public void setMeanings(String[] scoreMeanings) {
+		this.scoreMeanings = scoreMeanings;
 	}
 	
 }
